@@ -1,0 +1,63 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans     
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc 
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://www.springframework.org/schema/context 
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config />
+
+	<!--creating the manually dependency injection -->
+	<!-- <bean id="heartfun" class="com.AutowireAnnatation.Heart"></bean> <bean 
+		id="human" class="com.AutowireAnnatation.Human"> this is one way to create 
+		the dependence injection <property name="heart" ref="heartfun"/> </bean> -->
+
+	<!--This is one way to create the dependence injection by Autowire type 
+		=byname -->
+	<!-- <bean id="heart" class="com.AutowireAnnatation.Heart"></bean> <bean 
+		id="human" class="com.AutowireAnnatation.Human" autowire="byName"> </bean> -->
+
+
+	<!--This is second way to create the dependence injection by classname reference 
+		same as type =bytype(classtype) -->
+	<!-- <bean id="heart" class="com.AutowireAnnatation.Heart"></bean> <bean 
+		id="human" class="com.AutowireAnnatation.Human" autowire="byType"> </bean> -->
+
+
+	<!--This is third way to create the dependence injection by constructor 
+		Autowire -->
+	<!-- <bean id="heart" class="com.AutowireAnnatation.Heart"></bean> <bean 
+		id="human" class="com.AutowireAnnatation.Human" autowire="constructor"> </bean> -->
+
+	<!--This is fourth way to create the dependence injection by constructor 
+		Autowire with annotation -->
+	<!-- <bean id="heart" class="com.AutowireAnnatation.Heart"></bean> <bean 
+		id="human" class="com.AutowireAnnatation.Human"> </bean> -->
+
+
+	<!--how did you know dependency injection taking byType or byName -->
+	<!-- byName -->
+	<!-- <bean id="heart" class="com.AutowireAnnatation.Heart"/> -->
+	<!--byType -->
+	<!-- <bean id="gostheart" class="com.AutowireAnnatation.Heart" /> <bean 
+		id="human" class="com.AutowireAnnatation.Human"> </bean> -->
+
+	<!-- -->
+	<bean id="humanheart" class="com.AutowireAnnatation.Heart">
+		<property name="humanName" value="Kiran"/>
+		<property name="number" value="1"/>
+	</bean>
+	<bean id="goestheart" class="com.AutowireAnnatation.Heart">
+		<property name="humanName" value="devil"/>
+		<property name="number" value="2"/>
+	</bean>
+	
+	<bean id="human" class="com.AutowireAnnatation.Human">
+	</bean>
+
+</beans>
